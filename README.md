@@ -1,8 +1,8 @@
-# 🗺️ E-Ink Maps Navigator
+# 🗺️ e-ink Maps
 
 ## 📌 Cos'è
 
-**E-Ink Maps** è un progetto basato su microcontrollore (ottimizzato per ESP32-S3) che trasforma un piccolo schermo e-paper da 1.54" in un display secondario per la navigazione turn-by-turn.
+**e-ink Maps** è un progetto basato su microcontrollore (ottimizzato per ESP32-S3) che trasforma un piccolo schermo e-paper da 1.54" in un display secondario per la navigazione turn-by-turn.
 
 Progettato per essere compatto, leggibile sotto la luce diretta del sole e a bassissimo consumo energetico, il dispositivo funge da "ripetitore" delle indicazioni stradali, ricevendo i dati in tempo reale da uno smartphone tramite connessione Bluetooth Low Energy (BLE). Il progetto è stato pensato per interfacciarsi con app di automazione Android, come **Tasker**.
 
