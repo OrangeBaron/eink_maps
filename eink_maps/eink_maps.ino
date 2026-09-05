@@ -361,7 +361,7 @@ void setupBLE() {
   BLEService *pService = pServer->createService(SERVICE_UUID);
   BLECharacteristic *pCharacteristic = pService->createCharacteristic(
       CHARACTERISTIC_UUID,
-      BLECharacteristic::PROPERTY_READ | BLECharacteristic::PROPERTY_WRITE | BLECharacteristic::PROPERTY_WRITE_NR
+      BLECharacteristic::PROPERTY_READ | BLECharacteristic::PROPERTY_WRITE_NR
   );
 
   pCharacteristic->setCallbacks(new BLEDataCallback());
