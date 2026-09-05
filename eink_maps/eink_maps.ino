@@ -130,7 +130,7 @@ const uint8_t* getIconBitmap(const String& hash) {
 class ServerCallbacks: public BLEServerCallbacks {
     void onConnect(BLEServer* pServer) override {
       isConnected = true;
-      Serial.println("Dispositivo connesso");
+      // Serial.println("Dispositivo connesso");
       
       if (xSemaphoreTake(stateMutex, (TickType_t)10) == pdTRUE) {
         currentState.distance = "OK!";
@@ -143,14 +143,14 @@ class ServerCallbacks: public BLEServerCallbacks {
           xTaskNotifyGive(displayTaskHandle);
         }
       } else {
-        Serial.println("Impossibile acquisire il mutex in onConnect");
+        // Serial.println("Impossibile acquisire il mutex in onConnect");
       }
     }
 
     void onDisconnect(BLEServer* pServer) override {
       isConnected = false;
       lastDisconnectTime = millis();
-      Serial.println("Dispositivo disconnesso");
+      // Serial.println("Dispositivo disconnesso");
       
       if (xSemaphoreTake(stateMutex, (TickType_t)10) == pdTRUE) {
         currentState.distance = "Errore";
@@ -163,7 +163,7 @@ class ServerCallbacks: public BLEServerCallbacks {
           xTaskNotifyGive(displayTaskHandle);
         }
       } else {
-        Serial.println("Impossibile acquisire il mutex in onDisconnect");
+        // Serial.println("Impossibile acquisire il mutex in onDisconnect");
       }
       BLEDevice::startAdvertising();
     }
@@ -172,11 +172,10 @@ class ServerCallbacks: public BLEServerCallbacks {
 // --- CALLBACK RICEZIONE DATI BLE ---
 class BLEDataCallback: public BLECharacteristicCallbacks {
     void onWrite(BLECharacteristic *pCharacteristic) override {
-      // Recupera direttamente come Arduino String
       String data = pCharacteristic->getValue();
       
       if (data.length() > 0) {
-        Serial.println("Ricevuto: " + data);
+        // Serial.println("Ricevuto: " + data);
         
         // Parsing del payload: "distanza|indicazione|codice icona|info viaggio"
         int p1 = data.indexOf('|');
@@ -200,10 +199,10 @@ class BLEDataCallback: public BLECharacteristicCallbacks {
               xTaskNotifyGive(displayTaskHandle);
             }
           } else {
-            Serial.println("Impossibile acquisire il mutex, payload ignorato");
+            // Serial.println("Impossibile acquisire il mutex, payload ignorato");
           }
         } else {
-          Serial.println("Formato non valido: mancano delimitatori");
+          // Serial.println("Formato non valido: mancano delimitatori");
         }
       }
     }
@@ -268,7 +267,7 @@ void drawTripInfoContent() {
 
 void updateDisplay(bool fullUpdate) {
   if (fullUpdate) {
-    Serial.println("Aggiornamento totale display");
+    // Serial.println("Aggiornamento totale display");
     display.setFullWindow();
     display.firstPage();
     do {
@@ -288,7 +287,7 @@ void updateDisplay(bool fullUpdate) {
       display.print(renderState.tripInfo);
     } while (display.nextPage());
   } else {
-    Serial.println("Aggiornamento parziale display");
+    // Serial.println("Aggiornamento parziale display");
     drawPartialElement(drawDistanceContent, DIST_BOX_X, DIST_BOX_Y, DIST_BOX_W, DIST_BOX_H); 
     drawPartialElement(drawTripInfoContent, TRIP_BOX_X, TRIP_BOX_Y, TRIP_BOX_W, TRIP_BOX_H);
   }
@@ -318,7 +317,7 @@ void displayTask(void *pvParameters) {
         partialRefreshCount++;
         if (partialRefreshCount >= 20) {
           requiresFull = true;
-          Serial.println("Forzato aggiornamento totale");
+          // Serial.println("Forzato aggiornamento totale");
         }
       } 
       
@@ -361,7 +360,7 @@ void setupBLE() {
   BLEService *pService = pServer->createService(SERVICE_UUID);
   BLECharacteristic *pCharacteristic = pService->createCharacteristic(
       CHARACTERISTIC_UUID,
-      BLECharacteristic::PROPERTY_READ | BLECharacteristic::PROPERTY_WRITE_NR
+      BLECharacteristic::PROPERTY_READ | BLECharacteristic::PROPERTY_WRITE | BLECharacteristic::PROPERTY_WRITE_NR
   );
 
   pCharacteristic->setCallbacks(new BLEDataCallback());
@@ -374,11 +373,11 @@ void setupBLE() {
   pAdvertising->setMinPreferred(0x12);
   BLEDevice::startAdvertising();
   
-  Serial.println("BLE Attivo. MAC: " + macAddress);
+  // Serial.println("BLE Attivo. MAC: " + macAddress);
 }
 
 void setup() {
-  Serial.begin(115200);
+  // Serial.begin(115200);
   delay(500);
   
   stateMutex = xSemaphoreCreateMutex();
@@ -400,7 +399,7 @@ void setup() {
 
 void loop() {
   if (!isConnected && (millis() - lastDisconnectTime > 60000)) {
-    Serial.println("Spegnimento per inattività");
+    // Serial.println("Spegnimento per inattività");
 
     display.setFullWindow();
     display.firstPage();
@@ -414,7 +413,7 @@ void loop() {
 
     digitalWrite(EPD_PWR_EN, HIGH); 
 
-    Serial.flush();
+    // Serial.flush();
     esp_deep_sleep_start();
   }
 
