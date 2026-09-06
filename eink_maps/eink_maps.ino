@@ -340,7 +340,7 @@ void setupDisplay() {
 
   SPI.begin(EPD_SCLK, -1, EPD_MOSI, -1);
   display.epd2.selectSPI(SPI, SPISettings(4000000, MSBFIRST, SPI_MODE0));
-  display.init(115200, true, 2, false);
+  display.init(0, false, 2, false);
   display.setRotation(0);
 }
 
