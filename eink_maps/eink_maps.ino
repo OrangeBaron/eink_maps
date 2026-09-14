@@ -19,6 +19,7 @@
 #define EPD_SCLK     12
 #define EPD_MOSI     13
 #define EPD_PWR_EN   6
+#define BAT_CTRL     17
 
 // UUID configurati su Tasker
 #define SERVICE_UUID        "4fafc201-1fb5-459e-8fcc-c5c9c331914b"
@@ -130,8 +131,6 @@ const uint8_t* getIconBitmap(const String& hash) {
 class ServerCallbacks: public BLEServerCallbacks {
     void onConnect(BLEServer* pServer) override {
       isConnected = true;
-      // Serial.println("Dispositivo connesso");
-      
       if (xSemaphoreTake(stateMutex, (TickType_t)10) == pdTRUE) {
         currentState.distance = "OK!";
         currentState.direction = "Connessione attiva";
@@ -143,15 +142,13 @@ class ServerCallbacks: public BLEServerCallbacks {
           xTaskNotifyGive(displayTaskHandle);
         }
       } else {
-        // Serial.println("Impossibile acquisire il mutex in onConnect");
+        // Impossibile acquisire il mutex in onConnect
       }
     }
 
     void onDisconnect(BLEServer* pServer) override {
       isConnected = false;
-      lastDisconnectTime = millis();
-      // Serial.println("Dispositivo disconnesso");
-      
+      lastDisconnectTime = millis();      
       if (xSemaphoreTake(stateMutex, (TickType_t)10) == pdTRUE) {
         currentState.distance = "Errore";
         currentState.direction = "Connessione persa";
@@ -163,7 +160,7 @@ class ServerCallbacks: public BLEServerCallbacks {
           xTaskNotifyGive(displayTaskHandle);
         }
       } else {
-        // Serial.println("Impossibile acquisire il mutex in onDisconnect");
+        // Impossibile acquisire il mutex in onDisconnect
       }
       BLEDevice::startAdvertising();
     }
@@ -175,8 +172,6 @@ class BLEDataCallback: public BLECharacteristicCallbacks {
       String data = pCharacteristic->getValue();
       
       if (data.length() > 0) {
-        // Serial.println("Ricevuto: " + data);
-        
         // Parsing del payload: "distanza|indicazione|codice icona|info viaggio"
         int p1 = data.indexOf('|');
         int p2 = data.indexOf('|', p1 + 1);
@@ -199,10 +194,10 @@ class BLEDataCallback: public BLECharacteristicCallbacks {
               xTaskNotifyGive(displayTaskHandle);
             }
           } else {
-            // Serial.println("Impossibile acquisire il mutex, payload ignorato");
+            // Impossibile acquisire il mutex, payload ignorato
           }
         } else {
-          // Serial.println("Formato non valido: mancano delimitatori");
+          // Formato non valido: mancano delimitatori
         }
       }
     }
@@ -267,7 +262,6 @@ void drawTripInfoContent() {
 
 void updateDisplay(bool fullUpdate) {
   if (fullUpdate) {
-    // Serial.println("Aggiornamento totale display");
     display.setFullWindow();
     display.firstPage();
     do {
@@ -287,7 +281,6 @@ void updateDisplay(bool fullUpdate) {
       display.print(renderState.tripInfo);
     } while (display.nextPage());
   } else {
-    // Serial.println("Aggiornamento parziale display");
     drawPartialElement(drawDistanceContent, DIST_BOX_X, DIST_BOX_Y, DIST_BOX_W, DIST_BOX_H); 
     drawPartialElement(drawTripInfoContent, TRIP_BOX_X, TRIP_BOX_Y, TRIP_BOX_W, TRIP_BOX_H);
   }
@@ -317,7 +310,6 @@ void displayTask(void *pvParameters) {
         partialRefreshCount++;
         if (partialRefreshCount >= 20) {
           requiresFull = true;
-          // Serial.println("Forzato aggiornamento totale");
         }
       } 
       
@@ -372,14 +364,14 @@ void setupBLE() {
   pAdvertising->setMinPreferred(0x06);
   pAdvertising->setMinPreferred(0x12);
   BLEDevice::startAdvertising();
-  
-  // Serial.println("BLE Attivo. MAC: " + macAddress);
-}
+  }
 
 void setup() {
-  // Serial.begin(115200);
+  pinMode(BAT_CTRL, OUTPUT);
+  digitalWrite(BAT_CTRL, HIGH);
+
   delay(500);
-  
+
   stateMutex = xSemaphoreCreateMutex();
   
   setupDisplay();
@@ -399,8 +391,6 @@ void setup() {
 
 void loop() {
   if (!isConnected && (millis() - lastDisconnectTime > 60000)) {
-    // Serial.println("Spegnimento per inattività");
-
     display.setFullWindow();
     display.firstPage();
     do {
@@ -413,7 +403,7 @@ void loop() {
 
     digitalWrite(EPD_PWR_EN, HIGH); 
 
-    // Serial.flush();
+    digitalWrite(BAT_CTRL, LOW);
     esp_deep_sleep_start();
   }
 
