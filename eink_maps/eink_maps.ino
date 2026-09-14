@@ -20,6 +20,7 @@
 #define EPD_MOSI     13
 #define EPD_PWR_EN   6
 #define BAT_CTRL     17
+#define BAT_ADC      4
 
 // UUID configurati su Tasker
 #define SERVICE_UUID        "4fafc201-1fb5-459e-8fcc-c5c9c331914b"
@@ -49,10 +50,10 @@ GxEPD2_BW<GxEPD2_154_D67, GxEPD2_154_D67::HEIGHT> display(GxEPD2_154_D67(EPD_CS,
 
 // Struttura per gestire lo stato dell'interfaccia
 struct NavState {
-  String distance = "Pronto";
+  String distance = "battery";
   String direction = "Attesa di connessione";
   String iconHash = "searching";
-  String tripInfo = "Avvio in corso...";
+  String tripInfo = "MAC address";
 
   bool requiresFullUpdate(const NavState& previous) const {
     return (iconHash != previous.iconHash) || (direction != previous.direction);
@@ -73,6 +74,7 @@ NavState previousState;
 SemaphoreHandle_t stateMutex;
 TaskHandle_t displayTaskHandle = NULL;
 
+String myMacAddress = "";
 unsigned long lastDisconnectTime = 0;
 bool isConnected = false;
 
@@ -127,13 +129,24 @@ const uint8_t* getIconBitmap(const String& hash) {
   return ic_missing;
 }
 
+// --- GESTIONE BATTERIA ---
+int getBatteryPercentage() {
+  uint32_t pinMv = analogReadMilliVolts(BAT_ADC);
+  float batteryVoltage = (pinMv * 2.0) / 1000.0;
+  
+  if (batteryVoltage >= 4.2) return 100;
+  if (batteryVoltage <= 3.0) return 0;
+  
+  return (int)(((batteryVoltage - 3.0) / (4.2 - 3.0)) * 100);
+}
+
 // --- CALLBACK CONNESSIONE/DISCONNESSIONE BLE ---
 class ServerCallbacks: public BLEServerCallbacks {
     void onConnect(BLEServer* pServer) override {
       isConnected = true;
       if (xSemaphoreTake(stateMutex, (TickType_t)10) == pdTRUE) {
-        currentState.distance = "OK!";
-        currentState.direction = "Connessione attiva";
+        currentState.distance = String(getBatteryPercentage()) + "%";
+        currentState.direction = "Connesso";
         currentState.iconHash = "connected"; 
         currentState.tripInfo = "Buon viaggio!";
         xSemaphoreGive(stateMutex);
@@ -150,10 +163,10 @@ class ServerCallbacks: public BLEServerCallbacks {
       isConnected = false;
       lastDisconnectTime = millis();      
       if (xSemaphoreTake(stateMutex, (TickType_t)10) == pdTRUE) {
-        currentState.distance = "Errore";
-        currentState.direction = "Connessione persa";
+        currentState.distance = String(getBatteryPercentage()) + "%";
+        currentState.direction = "Disconnesso";
         currentState.iconHash = "disabled"; 
-        currentState.tripInfo = "Riavvio advertising";
+        currentState.tripInfo = myMacAddress;
         xSemaphoreGive(stateMutex);
         
         if (displayTaskHandle != NULL) {
@@ -338,10 +351,16 @@ void setupDisplay() {
 
 void setupBLE() {
   BLEDevice::init("E-INK_MAPS");
-  String macAddress = BLEDevice::getAddress().toString().c_str();
-  macAddress.toUpperCase();
   
-  currentState.tripInfo = macAddress;
+  myMacAddress = BLEDevice::getAddress().toString().c_str();
+  myMacAddress.toUpperCase();
+  
+  // Imposta lo stato iniziale
+  currentState.distance = String(getBatteryPercentage()) + "%";
+  currentState.direction = "Attesa di connessione";
+  currentState.iconHash = "searching";
+  currentState.tripInfo = myMacAddress;
+  
   renderState = currentState;
   updateDisplay(true);
   previousState = renderState;
@@ -364,14 +383,20 @@ void setupBLE() {
   pAdvertising->setMinPreferred(0x06);
   pAdvertising->setMinPreferred(0x12);
   BLEDevice::startAdvertising();
-  }
+  
+  // Serial.println("BLE Attivo. MAC: " + myMacAddress);
+}
 
 void setup() {
+  // Serial.begin(115200);
+
   pinMode(BAT_CTRL, OUTPUT);
   digitalWrite(BAT_CTRL, HIGH);
-
+  
+  pinMode(BAT_ADC, INPUT);
+  
   delay(500);
-
+  
   stateMutex = xSemaphoreCreateMutex();
   
   setupDisplay();
