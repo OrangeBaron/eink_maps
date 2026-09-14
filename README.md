@@ -1,4 +1,4 @@
-# 🗺️ E-Ink Maps Navigator
+# 🗺️ E-Ink Maps
 
 ## 📌 Cos'è
 
