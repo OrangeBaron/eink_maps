@@ -78,6 +78,25 @@ String myMacAddress = "";
 unsigned long lastDisconnectTime = 0;
 bool isConnected = false;
 
+// --- FUNZIONE PER RIMUOVERE GLI ACCENTI ---
+String replaceAccents(String str) {
+  str.replace("à", "a'");
+  str.replace("è", "e'");
+  str.replace("é", "e'");
+  str.replace("ì", "i'");
+  str.replace("ò", "o'");
+  str.replace("ù", "u'");
+  
+  str.replace("À", "A'");
+  str.replace("È", "E'");
+  str.replace("É", "E'");
+  str.replace("Ì", "I'");
+  str.replace("Ò", "O'");
+  str.replace("Ù", "U'");
+  
+  return str;
+}
+
 // --- GESTIONE ICONE ---
 struct IconMapping {
   const char* hashName;
@@ -134,10 +153,10 @@ int getBatteryPercentage() {
   uint32_t pinMv = analogReadMilliVolts(BAT_ADC);
   float batteryVoltage = (pinMv * 2.0) / 1000.0;
   
-  if (batteryVoltage >= 4.2) return 100;
+  if (batteryVoltage >= 4.1) return 100;
   if (batteryVoltage <= 3.0) return 0;
   
-  return (int)(((batteryVoltage - 3.0) / (4.2 - 3.0)) * 100);
+  return (int)(((batteryVoltage - 3.0) / (4.1 - 3.0)) * 100);
 }
 
 // --- CALLBACK CONNESSIONE/DISCONNESSIONE BLE ---
@@ -192,7 +211,7 @@ class BLEDataCallback: public BLECharacteristicCallbacks {
         
         if (p1 != -1 && p2 != -1 && p3 != -1) {
           String newDistance = data.substring(0, p1);
-          String newDirection = data.substring(p1 + 1, p2);
+          String newDirection = replaceAccents(data.substring(p1 + 1, p2));
           String newIconHash = data.substring(p2 + 1, p3);
           String newTripInfo = data.substring(p3 + 1);
 
