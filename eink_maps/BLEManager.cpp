@@ -3,7 +3,7 @@
 #include "State.h"
 #include "Utils.h"
 #include "Battery.h"
-#include "DisplayManager.h" // Necessario per chiamare updateDisplay() nel setup iniziale
+#include "DisplayManager.h"
 
 #include <BLEDevice.h>
 #include <BLEServer.h>
@@ -65,6 +65,10 @@ class BLEDataCallback: public BLECharacteristicCallbacks {
           String newDirection = replaceAccents(data.substring(p1 + 1, p2));
           String newIconHash = data.substring(p2 + 1, p3);
           String newTripInfo = data.substring(p3 + 1);
+
+          if (getBatteryPercentage() < 20) {
+            newTripInfo += " !";
+          }
 
           if (xSemaphoreTake(stateMutex, (TickType_t)10) == pdTRUE) {
             currentState.distance = newDistance;
