@@ -59,38 +59,12 @@ void setupDisplay() {
 }
 
 // --- FUNZIONI DI DISEGNO SPECIFICHE ---
-void drawBatteryInfo(const String& battText) {
-    display.setFont(&FreeSansBold12pt7b);
-    int16_t tbx1, tby1; uint16_t tbw1, tbh1;
-    display.getTextBounds("BATT", 0, 0, &tbx1, &tby1, &tbw1, &tbh1);
-    
-    display.setFont(&FreeSansBold18pt7b);
-    int16_t tbx2, tby2; uint16_t tbw2, tbh2;
-    display.getTextBounds(battText, 0, 0, &tbx2, &tby2, &tbw2, &tbh2);
-    
-    int spacing = 4;
-    int totalHeight = tbh1 + spacing + tbh2;
-    int startY = DIST_BOX_Y + ((DIST_BOX_H - totalHeight) / 2);
-    
-    display.setFont(&FreeSansBold12pt7b);
-    uint16_t x1 = DIST_BOX_X + ((DIST_BOX_W - tbw1) / 2) - tbx1;
-    uint16_t y1 = startY - tby1;
-    display.setCursor(x1, y1);
-    display.print("BATT");
-    
-    display.setFont(&FreeSansBold18pt7b);
-    uint16_t x2 = DIST_BOX_X + ((DIST_BOX_W - tbw2) / 2) - tbx2;
-    uint16_t y2 = startY + tbh1 + spacing - tby2;
-    display.setCursor(x2, y2);
-    display.print(battText);
+void drawBatteryInfo(int batteryPercent) {
+    display.drawBitmap(DIST_BOX_X, DIST_BOX_Y, getBatteryIcon(batteryPercent), DIST_BOX_W, DIST_BOX_H, GxEPD_BLACK);
 }
 
 void drawDistanceInfo(String distText) {
     display.setFont(&FreeSansBold18pt7b);
-    
-    if (distText.length() > 5) {
-        distText.replace(" ", "");
-    }
     
     int16_t tbx, tby; uint16_t tbw, tbh;
     display.getTextBounds(distText, 0, 0, &tbx, &tby, &tbw, &tbh);
@@ -108,7 +82,7 @@ void drawDistanceContent() {
     display.setTextWrap(false);
     
     if (!renderState.isNavigating) {
-        drawBatteryInfo(renderState.distance);
+        drawBatteryInfo(renderState.batteryPercent);
     } else {
         drawDistanceInfo(renderState.distance);
     }

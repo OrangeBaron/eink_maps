@@ -6,13 +6,14 @@
 
 struct NavState {
   bool isNavigating = false;
-  String distance = "battery";
+  String distance = "";
   String direction = "Attesa di connessione";
   String iconHash = "searching";
   String tripInfo = "MAC address";
+  int batteryPercent = 0;
 
   bool requiresFullUpdate(const NavState& previous) const {
-    return (iconHash != previous.iconHash) || 
+    return (iconHash != previous.iconHash) ||
            (direction != previous.direction) ||
            (isNavigating != previous.isNavigating);
   }
@@ -22,13 +23,13 @@ struct NavState {
            (distance != other.distance) ||
            (direction != other.direction) ||
            (iconHash != other.iconHash) ||
-           (tripInfo != other.tripInfo);
+           (tripInfo != other.tripInfo) ||
+           (batteryPercent != other.batteryPercent);
   }
 };
 
 extern NavState currentState;
 extern NavState renderState;
 extern NavState previousState;
-
 extern SemaphoreHandle_t stateMutex;
 extern TaskHandle_t displayTaskHandle;

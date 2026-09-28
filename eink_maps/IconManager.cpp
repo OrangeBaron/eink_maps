@@ -54,3 +54,22 @@ const uint8_t* getIconBitmap(const String& hash) {
 const uint8_t* getSplashIcon() {
   return ic_splash;
 }
+
+const uint8_t* getBatteryIcon(int percentage) {
+    int level = (percentage * 8) / 100;
+    
+    if (level >= 8) level = 7;
+    if (level < 0) level = 0;
+
+    switch (level) {
+        case 0: return ic_battery_0;
+        case 1: return ic_battery_1;
+        case 2: return ic_battery_2;
+        case 3: return ic_battery_3;
+        case 4: return ic_battery_4;
+        case 5: return ic_battery_5;
+        case 6: return ic_battery_6;
+        case 7: return ic_battery_7;
+        default: return ic_battery_7;
+    }
+}

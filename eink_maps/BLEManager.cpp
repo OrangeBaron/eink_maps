@@ -19,7 +19,8 @@ class ServerCallbacks: public BLEServerCallbacks {
         isConnected = true;
         if (xSemaphoreTake(stateMutex, (TickType_t)10) == pdTRUE) {
             currentState.isNavigating = false;
-            currentState.distance = String(getBatteryPercentage()) + "%";
+            currentState.distance = "";
+            currentState.batteryPercent = getBatteryPercentage();
             currentState.direction = "Connesso";
             currentState.iconHash = "connected"; 
             currentState.tripInfo = "Buon viaggio!";
@@ -37,7 +38,8 @@ class ServerCallbacks: public BLEServerCallbacks {
         
         if (xSemaphoreTake(stateMutex, (TickType_t)10) == pdTRUE) {
             currentState.isNavigating = false;
-            currentState.distance = String(getBatteryPercentage()) + "%";
+            currentState.distance = "";
+            currentState.batteryPercent = getBatteryPercentage();
             currentState.direction = "Disconnesso";
             currentState.iconHash = "disabled"; 
             currentState.tripInfo = myMacAddress;
@@ -97,7 +99,8 @@ void setupBLE() {
 
     // Imposta lo stato iniziale
     currentState.isNavigating = false;
-    currentState.distance = String(getBatteryPercentage()) + "%";
+    currentState.distance = "";
+    currentState.batteryPercent = getBatteryPercentage();
     currentState.direction = "Attesa di connessione";
     currentState.iconHash = "searching";
     currentState.tripInfo = myMacAddress;
