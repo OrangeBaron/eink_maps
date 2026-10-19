@@ -97,35 +97,29 @@ void drawTripInfoContent() {
     display.print(renderState.tripInfo);
 }
 
-void drawPartialElement(void (*drawFunc)(), uint16_t x, uint16_t y, uint16_t w, uint16_t h) {
-    display.setPartialWindow(x, y, w, h);
-    display.firstPage();
-    do { drawFunc(); } while (display.nextPage());
+void drawAllContent() {
+    display.fillScreen(GxEPD_WHITE);
+    display.drawBitmap(0, 0, getIconBitmap(renderState.iconHash), ICON_SIZE, ICON_SIZE, GxEPD_BLACK);
+    drawDistanceContent();
+    display.setTextColor(GxEPD_BLACK);
+    display.setFont(&FreeSansBold12pt7b);
+    display.setTextWrap(true);
+    UIHelpers::printWithMargin(renderState.direction, DIR_CURSOR_X, DIR_CURSOR_Y, DIR_TEXT_MAX_WIDTH, DIR_LINE_HEIGHT);
+    drawTripInfoContent();
 }
 
 // --- LOGICA DI AGGIORNAMENTO ---
 void updateDisplay(bool fullUpdate) {
     if (fullUpdate) {
         display.setFullWindow();
-        display.firstPage();
-        do {
-            display.fillScreen(GxEPD_WHITE);
-            
-            display.drawBitmap(0, 0, getIconBitmap(renderState.iconHash), ICON_SIZE, ICON_SIZE, GxEPD_BLACK);
-            
-            drawDistanceContent();
-            
-            display.setTextColor(GxEPD_BLACK);
-            display.setFont(&FreeSansBold12pt7b);
-            display.setTextWrap(true); 
-            UIHelpers::printWithMargin(renderState.direction, DIR_CURSOR_X, DIR_CURSOR_Y, DIR_TEXT_MAX_WIDTH, DIR_LINE_HEIGHT);
-            
-            drawTripInfoContent();
-        } while (display.nextPage());
     } else {
-        drawPartialElement(drawDistanceContent, DIST_BOX_X, DIST_BOX_Y, DIST_BOX_W, DIST_BOX_H);
-        drawPartialElement(drawTripInfoContent, TRIP_BOX_X, TRIP_BOX_Y, TRIP_BOX_W, TRIP_BOX_H);
+        display.setPartialWindow(0, 0, display.width(), display.height());
     }
+    
+    display.firstPage();
+    do {
+        drawAllContent();
+    } while (display.nextPage());
 }
 
 void showSplashAndHibernate() {
