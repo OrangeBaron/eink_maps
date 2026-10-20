@@ -9,7 +9,7 @@
 Il codice sorgente è concepito per essere compilato e flashato su un modulo **Waveshare ESP32-S3-ePaper-1.54** utilizzando **Arduino IDE**.
 
 Sul telefono sono necessarie le seguenti app: **Tasker**, **AutoNotification** e **BLE Tasker Plugin**.
-Importare in Tasker il profilo `Android_Moto.prf.xml`, che si occupa di intercettare le notifiche di **Google Maps** e di trasmetterle al display nel formeto corretto.
+Importare in Tasker il profilo `Android_Moto.prf.xml` che si occupa di intercettare le notifiche di **Google Maps** e di trasmetterle al display nel formato corretto.
 
 ## Cosa fa
 
