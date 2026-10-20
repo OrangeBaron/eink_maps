@@ -1,12 +1,17 @@
-# 🗺️ e-ink Maps
+# e-ink Maps
 
-## 📌 Cos'è
+## Cos'è
 
-**e-ink Maps** è un progetto basato su microcontrollore (ottimizzato per ESP32-S3) che trasforma un piccolo schermo e-paper da 1.54" in un display secondario per la navigazione turn-by-turn.
+È un progetto basato su microcontrollore (ottimizzato per ESP32-S3) che trasforma un piccolo schermo e-paper da 1.54" in un display secondario per la navigazione turn-by-turn. Progettato per essere compatto, leggibile sotto la luce diretta del sole e a bassissimo consumo energetico, il dispositivo funge da "ripetitore" delle indicazioni stradali, ricevendo i dati in tempo reale da uno smartphone tramite connessione Bluetooth Low Energy (BLE). Il progetto è stato pensato per interfacciarsi con app di automazione Android, come **Tasker**.
 
-Progettato per essere compatto, leggibile sotto la luce diretta del sole e a bassissimo consumo energetico, il dispositivo funge da "ripetitore" delle indicazioni stradali, ricevendo i dati in tempo reale da uno smartphone tramite connessione Bluetooth Low Energy (BLE). Il progetto è stato pensato per interfacciarsi con app di automazione Android, come **Tasker**.
+## Come si usa
 
-## ⚙️ Cosa fa
+Il codice sorgente è concepito per essere compilato e flashato su un modulo **Waveshare ESP32-S3-ePaper-1.54** utilizzando **Arduino IDE**.
+
+Sul telefono sono necessarie le seguenti app: **Tasker**, **AutoNotification** e **BLE Tasker Plugin**.
+Importare in Tasker il profilo `Android_Moto.prf.xml`, che si occupa di intercettare le notifiche di **Google Maps** e di trasmetterle al display nel formeto corretto.
+
+## Cosa fa
 
 Il sistema agisce come un Server BLE in attesa di connessione. Una volta collegato allo smartphone, esegue le seguenti funzioni:
 
