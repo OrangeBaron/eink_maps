@@ -7,18 +7,25 @@
 #include <Fonts/FreeSansBold18pt7b.h>
 #include <Fonts/FreeSansBold12pt7b.h>
 #include <Fonts/FreeSansBold9pt7b.h>
+#include <vector>
 
 // Inizializza il display e-paper 1.54" con driver SSD1681
 GxEPD2_BW<GxEPD2_154_D67, GxEPD2_154_D67::HEIGHT> display(GxEPD2_154_D67(EPD_CS, EPD_DC, EPD_RST, EPD_BUSY));
 
 // --- HELPER DI INTERFACCIA GRAFICA ---
 namespace UIHelpers {
-    void printWithMargin(String text, int x, int y, int maxWidth, int lineHeight) {
+    void printWithMargin(String text, int x, int y, int maxWidth, int defaultLineHeight) {
+        std::vector<String> lines;
         String currentLine = "";
-        int currentY = y;
         int startIdx = 0;
         
         while (startIdx < text.length()) {
+            if (lines.size() >= 2) {
+                String remainingText = text.substring(startIdx);
+                currentLine = (currentLine.length() == 0) ? remainingText : currentLine + " " + remainingText;
+                break;
+            }
+            
             int spaceIdx = text.indexOf(' ', startIdx);
             if (spaceIdx == -1) spaceIdx = text.length();
             
@@ -30,10 +37,8 @@ namespace UIHelpers {
             display.getTextBounds(testLine, 0, 0, &x1, &y1, &w, &h);
             
             if (w > maxWidth && currentLine.length() > 0) {
-                display.setCursor(x, currentY);
-                display.print(currentLine);
+                lines.push_back(currentLine);
                 currentLine = word;
-                currentY += lineHeight;
             } else {
                 currentLine = testLine;
             }
@@ -42,8 +47,21 @@ namespace UIHelpers {
         }
         
         if (currentLine.length() > 0) {
+            lines.push_back(currentLine);
+        }
+        
+        int actualLineHeight = defaultLineHeight;
+        int currentY = y;
+        
+        if (lines.size() == 3) {
+            actualLineHeight -= 5;
+            currentY -= 5;
+        }
+        
+        for (const String& line : lines) {
             display.setCursor(x, currentY);
-            display.print(currentLine);
+            display.print(line);
+            currentY += actualLineHeight;
         }
     }
 }
@@ -52,6 +70,7 @@ void setupDisplay() {
     pinMode(EPD_PWR_EN, OUTPUT);
     digitalWrite(EPD_PWR_EN, LOW); 
     delay(100);
+
     SPI.begin(EPD_SCLK, -1, EPD_MOSI, -1);
     display.epd2.selectSPI(SPI, SPISettings(4000000, MSBFIRST, SPI_MODE0));
     display.init(0, false, 2, false);
@@ -59,6 +78,7 @@ void setupDisplay() {
 }
 
 // --- FUNZIONI DI DISEGNO SPECIFICHE ---
+
 void drawBatteryInfo(int batteryPercent) {
     display.drawBitmap(DIST_BOX_X, DIST_BOX_Y, getBatteryIcon(batteryPercent), DIST_BOX_W, DIST_BOX_H, GxEPD_BLACK);
 }
@@ -77,7 +97,6 @@ void drawDistanceInfo(String distText) {
 }
 
 void drawDistanceContent() {
-    display.fillRect(DIST_BOX_X, DIST_BOX_Y, DIST_BOX_W, DIST_BOX_H, GxEPD_WHITE);
     display.setTextColor(GxEPD_BLACK);
     display.setTextWrap(false);
     
@@ -89,7 +108,6 @@ void drawDistanceContent() {
 }
 
 void drawTripInfoContent() {
-    display.fillRect(TRIP_BOX_X, TRIP_BOX_Y, TRIP_BOX_W, TRIP_BOX_H, GxEPD_WHITE);
     display.setTextColor(GxEPD_BLACK);
     display.setFont(&FreeSansBold9pt7b);
     display.setTextWrap(false);
@@ -97,29 +115,29 @@ void drawTripInfoContent() {
     display.print(renderState.tripInfo);
 }
 
-void drawAllContent() {
-    display.fillScreen(GxEPD_WHITE);
-    display.drawBitmap(0, 0, getIconBitmap(renderState.iconHash), ICON_SIZE, ICON_SIZE, GxEPD_BLACK);
-    drawDistanceContent();
+void drawDirectionContent() {
     display.setTextColor(GxEPD_BLACK);
     display.setFont(&FreeSansBold12pt7b);
-    display.setTextWrap(true);
+    display.setTextWrap(false);
     UIHelpers::printWithMargin(renderState.direction, DIR_CURSOR_X, DIR_CURSOR_Y, DIR_TEXT_MAX_WIDTH, DIR_LINE_HEIGHT);
-    drawTripInfoContent();
 }
 
 // --- LOGICA DI AGGIORNAMENTO ---
+
 void updateDisplay(bool fullUpdate) {
-    if (fullUpdate) {
-        display.setFullWindow();
-    } else {
-        display.setPartialWindow(0, 0, display.width(), display.height());
-    }
+    display.fillScreen(GxEPD_WHITE);
+    display.drawBitmap(0, 0, getIconBitmap(renderState.iconHash), ICON_SIZE, ICON_SIZE, GxEPD_BLACK);
     
-    display.firstPage();
-    do {
-        drawAllContent();
-    } while (display.nextPage());
+    drawDistanceContent();
+    drawDirectionContent();
+    drawTripInfoContent();
+
+    if (fullUpdate) {
+        display.display(false); 
+    } else {
+        display.displayWindow(DIST_BOX_X, DIST_BOX_Y, DIST_BOX_W, DIST_BOX_H);
+        display.displayWindow(TRIP_BOX_X, TRIP_BOX_Y, TRIP_BOX_W, TRIP_BOX_H);
+    }
 }
 
 void showSplashAndHibernate() {
@@ -129,12 +147,13 @@ void showSplashAndHibernate() {
         display.fillScreen(GxEPD_WHITE);
         display.drawBitmap(0, 0, getSplashIcon(), 200, 200, GxEPD_BLACK);
     } while (display.nextPage());
+
     display.hibernate();
 }
 
 // --- TASK FREERTOS ---
 void displayTask(void *pvParameters) {
-    int partialRefreshCount = 0; 
+    int partialRefreshCount = 0;
     
     for (;;) {
         ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
