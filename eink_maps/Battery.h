@@ -2,10 +2,6 @@
 #include <Arduino.h>
 #include "Config.h"
 
-// --- SOGLIE VOLTAGGIO ---
-constexpr float BATT_VOLTAGE_MAX = 4.0;
-constexpr float BATT_VOLTAGE_MIN = 3.2;
-
 // --- GESTIONE BATTERIA ---
 inline int getBatteryPercentage() {
   uint32_t pinMv = analogReadMilliVolts(BAT_ADC);

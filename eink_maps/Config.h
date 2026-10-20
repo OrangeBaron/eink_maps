@@ -39,5 +39,9 @@ constexpr uint16_t ICON_SIZE = 100;
 // --- COSTANTI DISPLAY ---
 constexpr int MAX_PARTIAL_REFRESHES = 20;
 
+// --- SOGLIE VOLTAGGIO BATTERIA ---
+constexpr float BATT_VOLTAGE_MAX = 4.0;
+constexpr float BATT_VOLTAGE_MIN = 3.2;
+
 // --- TIMEOUT SISTEMA ---
 constexpr unsigned long DISCONNECT_TIMEOUT_MS = 60000;
