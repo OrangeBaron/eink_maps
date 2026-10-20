@@ -69,10 +69,7 @@ class BLEDataCallback: public BLECharacteristicCallbacks {
                 String newDirection = replaceAccents(data.substring(p1 + 1, p2));
                 String newIconHash = data.substring(p2 + 1, p3);
                 String newTripInfo = data.substring(p3 + 1);
-                
-                if (getBatteryPercentage() < 20) {
-                    newTripInfo += " !";
-                }
+                int currentBatt = getBatteryPercentage();
                 
                 if (xSemaphoreTake(stateMutex, (TickType_t)10) == pdTRUE) {
                     currentState.isNavigating = true;
@@ -80,6 +77,7 @@ class BLEDataCallback: public BLECharacteristicCallbacks {
                     currentState.direction = newDirection;
                     currentState.iconHash = newIconHash;
                     currentState.tripInfo = newTripInfo;
+                    currentState.batteryPercent = currentBatt;
                     xSemaphoreGive(stateMutex);
                     
                     if (displayTaskHandle != NULL) {

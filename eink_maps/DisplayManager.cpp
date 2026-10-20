@@ -83,42 +83,59 @@ void drawBatteryInfo(int batteryPercent) {
     display.drawBitmap(DIST_BOX_X, DIST_BOX_Y, getBatteryIcon(batteryPercent), DIST_BOX_W, DIST_BOX_H, GxEPD_BLACK);
 }
 
-void drawDistanceInfo(String distText) {
-    display.setFont(&FreeSansBold18pt7b);
-    
-    int16_t tbx, tby; uint16_t tbw, tbh;
-    display.getTextBounds(distText, 0, 0, &tbx, &tby, &tbw, &tbh);
-    
-    uint16_t x = DIST_BOX_X + ((DIST_BOX_W - tbw) / 2) - tbx;
-    uint16_t y = DIST_BOX_Y + ((DIST_BOX_H - tbh) / 2) - tby;
-    
-    display.setCursor(x, y);
-    display.print(distText);
+void drawDistanceInfo(String distText, bool isBattLow) {
+    if (!isBattLow) {
+        // --- LAYOUT STANDARD ---
+        display.setFont(&FreeSansBold18pt7b);
+        
+        int16_t tbx, tby; uint16_t tbw, tbh;
+        display.getTextBounds(distText, 0, 0, &tbx, &tby, &tbw, &tbh);
+        
+        uint16_t x = DIST_BOX_X + ((DIST_BOX_W - tbw) / 2) - tbx;
+        uint16_t y = DIST_BOX_Y + ((DIST_BOX_H - tbh) / 2) - tby;
+        
+        display.setCursor(x, y);
+        display.print(distText);
+    } else {
+        // --- LAYOUT BATTERIA SCARICA ---
+        int16_t tbx, tby; uint16_t tbw, tbh;
+
+        display.setFont(&FreeSansBold18pt7b);
+        display.getTextBounds(distText, 0, 0, &tbx, &tby, &tbw, &tbh);
+        
+        uint16_t xDist = DIST_BOX_X + ((DIST_BOX_W - tbw) / 2) - tbx;
+        uint16_t yDist = DIST_BOX_Y + 45;
+        display.setCursor(xDist, yDist);
+        display.print(distText);
+
+        display.setFont(&FreeSansBold9pt7b);
+        String battText = "BATT LOW";
+        display.getTextBounds(battText, 0, 0, &tbx, &tby, &tbw, &tbh);
+        
+        uint16_t xBatt = DIST_BOX_X + ((DIST_BOX_W - tbw) / 2) - tbx;
+        uint16_t yBatt = DIST_BOX_Y + 80;
+        display.setCursor(xBatt, yBatt);
+        display.print(battText);
+    }
 }
 
 void drawDistanceContent() {
-    display.setTextColor(GxEPD_BLACK);
-    display.setTextWrap(false);
-    
     if (!renderState.isNavigating) {
         drawBatteryInfo(renderState.batteryPercent);
     } else {
-        drawDistanceInfo(renderState.distance);
+        bool isBattLow = (renderState.batteryPercent <= 20);
+        drawDistanceInfo(renderState.distance, isBattLow);
     }
 }
 
 void drawTripInfoContent() {
-    display.setTextColor(GxEPD_BLACK);
     display.setFont(&FreeSansBold9pt7b);
-    display.setTextWrap(false);
     display.setCursor(TRIP_CURSOR_X, TRIP_CURSOR_Y);
     display.print(renderState.tripInfo);
 }
 
 void drawDirectionContent() {
-    display.setTextColor(GxEPD_BLACK);
     display.setFont(&FreeSansBold12pt7b);
-    display.setTextWrap(false);
     UIHelpers::printWithMargin(renderState.direction, DIR_CURSOR_X, DIR_CURSOR_Y, DIR_TEXT_MAX_WIDTH, DIR_LINE_HEIGHT);
 }
 
@@ -127,7 +144,9 @@ void drawDirectionContent() {
 void updateDisplay(bool fullUpdate) {
     display.fillScreen(GxEPD_WHITE);
     display.drawBitmap(0, 0, getIconBitmap(renderState.iconHash), ICON_SIZE, ICON_SIZE, GxEPD_BLACK);
-    
+    display.setTextColor(GxEPD_BLACK);
+    display.setTextWrap(false);
+
     drawDistanceContent();
     drawDirectionContent();
     drawTripInfoContent();
