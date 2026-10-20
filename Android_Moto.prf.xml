@@ -1,0 +1,513 @@
+<TaskerData sr="" dvi="1" tv="6.7.7-rc">
+	<Profile sr="prof221" ve="2">
+		<cdate>1787923837085</cdate>
+		<clp>true</clp>
+		<edate>1792508815860</edate>
+		<flags>8</flags>
+		<id>221</id>
+		<mid0>254</mid0>
+		<nme>Android Moto</nme>
+		<Event sr="con0" ve="2">
+			<code>1520257414</code>
+			<pri>0</pri>
+			<Bundle sr="arg0">
+				<Vals sr="val">
+					<AllFields>false</AllFields>
+					<AllFields-type>java.lang.Boolean</AllFields-type>
+					<App>&lt;null&gt;</App>
+					<App-type>java.lang.String</App-type>
+					<BigImageNames>&lt;null&gt;</BigImageNames>
+					<BigImageNames-type>java.lang.String</BigImageNames-type>
+					<BigTextNames>&lt;null&gt;</BigTextNames>
+					<BigTextNames-type>java.lang.String</BigTextNames-type>
+					<CancelReason>&lt;StringArray sr=""/&gt;</CancelReason>
+					<CancelReason-type>[Ljava.lang.String;</CancelReason-type>
+					<CaseinsensitiveApp>false</CaseinsensitiveApp>
+					<CaseinsensitiveApp-type>java.lang.Boolean</CaseinsensitiveApp-type>
+					<CaseinsensitiveCategoryName>false</CaseinsensitiveCategoryName>
+					<CaseinsensitiveCategoryName-type>java.lang.Boolean</CaseinsensitiveCategoryName-type>
+					<CaseinsensitivePackage>false</CaseinsensitivePackage>
+					<CaseinsensitivePackage-type>java.lang.Boolean</CaseinsensitivePackage-type>
+					<CaseinsensitiveText>false</CaseinsensitiveText>
+					<CaseinsensitiveText-type>java.lang.Boolean</CaseinsensitiveText-type>
+					<CaseinsensitiveTitle>false</CaseinsensitiveTitle>
+					<CaseinsensitiveTitle-type>java.lang.Boolean</CaseinsensitiveTitle-type>
+					<CategoryImportance>&lt;StringArray sr=""/&gt;</CategoryImportance>
+					<CategoryImportance-type>[Ljava.lang.String;</CategoryImportance-type>
+					<CategoryName>\b(Navigatore|Aggiornamenti immediati sulla navigazione)\b</CategoryName>
+					<CategoryName-type>java.lang.String</CategoryName-type>
+					<ExactApp>false</ExactApp>
+					<ExactApp-type>java.lang.Boolean</ExactApp-type>
+					<ExactCategoryName>false</ExactCategoryName>
+					<ExactCategoryName-type>java.lang.Boolean</ExactCategoryName-type>
+					<ExactPackage>false</ExactPackage>
+					<ExactPackage-type>java.lang.Boolean</ExactPackage-type>
+					<ExactText>false</ExactText>
+					<ExactText-type>java.lang.Boolean</ExactText-type>
+					<ExactTitle>false</ExactTitle>
+					<ExactTitle-type>java.lang.Boolean</ExactTitle-type>
+					<HasMediaSession>false</HasMediaSession>
+					<HasMediaSession-type>java.lang.Boolean</HasMediaSession-type>
+					<HasReplyAction>false</HasReplyAction>
+					<HasReplyAction-type>java.lang.Boolean</HasReplyAction-type>
+					<Id>&lt;null&gt;</Id>
+					<Id-type>java.lang.String</Id-type>
+					<IgnoreGroupSummary>false</IgnoreGroupSummary>
+					<IgnoreGroupSummary-type>java.lang.Boolean</IgnoreGroupSummary-type>
+					<ImageNames>&lt;null&gt;</ImageNames>
+					<ImageNames-type>java.lang.String</ImageNames-type>
+					<InterceptApps>&lt;StringArray sr=""&gt;&lt;_array_InterceptApps0&gt;com.google.android.apps.maps&lt;/_array_InterceptApps0&gt;&lt;/StringArray&gt;</InterceptApps>
+					<InterceptApps-type>[Ljava.lang.String;</InterceptApps-type>
+					<InterceptPersistent>&lt;null&gt;</InterceptPersistent>
+					<InterceptPersistent-type>java.lang.String</InterceptPersistent-type>
+					<InvertApp>false</InvertApp>
+					<InvertApp-type>java.lang.Boolean</InvertApp-type>
+					<InvertCategoryName>false</InvertCategoryName>
+					<InvertCategoryName-type>java.lang.Boolean</InvertCategoryName-type>
+					<InvertPackage>false</InvertPackage>
+					<InvertPackage-type>java.lang.Boolean</InvertPackage-type>
+					<InvertText>false</InvertText>
+					<InvertText-type>java.lang.Boolean</InvertText-type>
+					<InvertTitle>false</InvertTitle>
+					<InvertTitle-type>java.lang.Boolean</InvertTitle-type>
+					<PackageName>&lt;null&gt;</PackageName>
+					<PackageName-type>java.lang.String</PackageName-type>
+					<RegexApp>false</RegexApp>
+					<RegexApp-type>java.lang.Boolean</RegexApp-type>
+					<RegexCategoryName>true</RegexCategoryName>
+					<RegexCategoryName-type>java.lang.Boolean</RegexCategoryName-type>
+					<RegexPackage>false</RegexPackage>
+					<RegexPackage-type>java.lang.Boolean</RegexPackage-type>
+					<RegexText>false</RegexText>
+					<RegexText-type>java.lang.Boolean</RegexText-type>
+					<RegexTitle>false</RegexTitle>
+					<RegexTitle-type>java.lang.Boolean</RegexTitle-type>
+					<Text>&lt;null&gt;</Text>
+					<Text-type>java.lang.String</Text-type>
+					<TextNames>&lt;null&gt;</TextNames>
+					<TextNames-type>java.lang.String</TextNames-type>
+					<Title>&lt;null&gt;</Title>
+					<Title-type>java.lang.String</Title-type>
+					<Type>0</Type>
+					<Type-type>java.lang.String</Type-type>
+					<com.twofortyfouram.locale.intent.extra.BLURB>Event Behaviour: true
+Notification Type: Only Created Notifications
+Notification Apps: Maps
+Notification Category Name: \b(Navigatore|Aggiornamenti immediati sulla navigazione)\b (regex)</com.twofortyfouram.locale.intent.extra.BLURB>
+					<com.twofortyfouram.locale.intent.extra.BLURB-type>java.lang.String</com.twofortyfouram.locale.intent.extra.BLURB-type>
+					<net.dinglisch.android.tasker.EXTRA_NSR_DEPRECATED>true</net.dinglisch.android.tasker.EXTRA_NSR_DEPRECATED>
+					<net.dinglisch.android.tasker.EXTRA_NSR_DEPRECATED-type>java.lang.Boolean</net.dinglisch.android.tasker.EXTRA_NSR_DEPRECATED-type>
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%anapp
+01. App name
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;%anbackgroundimage
+Background Image
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;%anbigicon
+04. Icon When Expanded
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;%anbutton1action
+13. Button Action 1
+Use with AutoNotification Actions&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES4&gt;%anbutton1icon
+13. Button 1 Icon
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES4&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES5&gt;%anbutton1text
+12. Button 1 Text
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES5&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES6&gt;%anbutton2action
+15. Button 2 Action
+Use with AutoNotification Actions&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES6&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES7&gt;%anbutton2icon
+15. Button 2 Icon
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES7&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES8&gt;%anbutton2text
+14. Button 2 Text
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES8&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES9&gt;%anbutton3action
+17. Button 3 Action
+Use with AutoNotification Actions&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES9&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES10&gt;%anbutton3icon
+17. Button 3 Icon
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES10&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES11&gt;%anbutton3text
+16. Button 3 Text
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES11&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES12&gt;%anbutton4action
+18. Button 4 Action
+Use with AutoNotification Actions&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES12&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES13&gt;%anbutton4icon
+18. Button 4 Icon
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES13&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES14&gt;%anbutton4text
+18. Button 4 Text
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES14&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES15&gt;%anbutton5action
+19. Button 5 Action
+Use with AutoNotification Actions&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES15&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES16&gt;%anbutton5icon
+19. Button 5 Icon
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES16&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES17&gt;%anbutton5text
+19. Button 5 Text
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES17&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES18&gt;%ancancelreason
+Reason Cancelled Code
+Code of the reason the notification was cancelled&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES18&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES19&gt;%ancancelreasontext
+Reason Cancelled Text
+Reason the notification was cancelled&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES19&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES20&gt;%ancategoryid
+Category ID
+Notification's category ID&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES20&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES21&gt;%ancategoryimportance
+Category Importance
+Notification's category Importance (0-5)&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES21&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES22&gt;%ancategoryname
+Category Name
+Notification's category Name&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES22&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES23&gt;%ancategorysound
+Category Sound
+Notification's category Sound URI&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES23&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES24&gt;%ancolor
+Color
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES24&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES25&gt;%anconversation
+Conversation
+JSON Structure with all conversation related fields, i.e. text, sender, image, etc&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES25&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES26&gt;%andismissaction
+23. Action On Dismiss Id
+Use with AutoNotification Actions&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES26&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES27&gt;%anextrainfo
+Extra Info
+Extra info that you can add to an AutoNotification notification when you create it. Empty for others.&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES27&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES28&gt;%anextras
+All Extras
+All extras from the notification that are not already in one of the other variables in JSON format&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES28&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES29&gt;%angroup
+Group
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES29&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES30&gt;%anhasmediasession
+Has Media Session
+All extras from the notification that are not already in one of the other variables in JSON format&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES30&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES31&gt;%anicon
+04. Icon
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES31&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES32&gt;%anid
+Id
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES32&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES33&gt;%aninfotext
+10. Info Text
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES33&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES34&gt;%ankey
+Key
+A unique instance key for this notification&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES34&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES35&gt;%anmediabutton_actions()
+Media Buttons Actions
+Use with AutoNotification Media action&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES35&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES36&gt;%anmediabutton_names()
+Media Buttons
+Names corresponding to Media Button Actions&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES36&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES37&gt;%annumber
+Number
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES37&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES38&gt;%anpackage
+Package Name
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES38&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES39&gt;%anpeople
+People
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES39&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES40&gt;%anpersistent
+Is Persistent
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES40&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES41&gt;%anpicture
+05. Picture
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES41&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES42&gt;%anpriority
+Priority
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES42&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES43&gt;%anprogress
+Progress
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES43&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES44&gt;%anprogressindeterminate
+Progress Indeterminate
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES44&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES45&gt;%anprogressmax
+Progress Max
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES45&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES46&gt;%anreplyaction
+20. Action Reply
+Use with AutoNotification Reply&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES46&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES47&gt;%anreplychoices()
+Reply Choices
+Choices for reply available as quick actions in the notification&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES47&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES48&gt;%anshowchronometer
+Show Chronometer
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES48&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES49&gt;%ansortkey
+Sort Key
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES49&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES50&gt;%anstatus
+Cancelled Or Created
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES50&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES51&gt;%anstatusbaricon
+07. Status Bar Icon
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES51&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES52&gt;%anstatusbaricon
+Status Bar Icon
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES52&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES53&gt;%ansubtext
+08. SubText
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES53&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES54&gt;%ansummary
+Is Summary
+Will be set to &amp;lt;b&amp;gt;1&amp;lt;/b&amp;gt; if it's a summary and &amp;lt;b&amp;gt;will not be set&amp;lt;/b&amp;gt; otherwise.&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES54&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES55&gt;%ansummarytext
+09. Summary Text
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES55&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES56&gt;%antag
+Tag
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES56&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES57&gt;%antext
+03. Text
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES57&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES58&gt;%antextbig
+03. Text When Expanded
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES58&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES59&gt;%antextlines()
+11. Text Lines
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES59&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES60&gt;%anticker
+03. Ticker Text
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES60&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES61&gt;%antitle
+02. Title
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES61&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES62&gt;%antitlebig
+02. Title When Expanded
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES62&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES63&gt;%antouchaction
+22. Action On Touch Id
+Use with AutoNotification Actions&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES63&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES64&gt;%anuserid
+User ID
+User ID for whom this notification is intended&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES64&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES65&gt;%anwhen
+Show When
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES65&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES66&gt;%anwhentime
+When
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES66&gt;&lt;/StringArray&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
+					<net.dinglisch.android.tasker.extras.REQUESTED_TIMEOUT>0</net.dinglisch.android.tasker.extras.REQUESTED_TIMEOUT>
+					<net.dinglisch.android.tasker.extras.REQUESTED_TIMEOUT-type>java.lang.Integer</net.dinglisch.android.tasker.extras.REQUESTED_TIMEOUT-type>
+					<net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS>InterceptApps Type CategoryName plugininstanceid plugintypeid </net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS>
+					<net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS-type>java.lang.String</net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS-type>
+					<net.dinglisch.android.tasker.subbundled>true</net.dinglisch.android.tasker.subbundled>
+					<net.dinglisch.android.tasker.subbundled-type>java.lang.Boolean</net.dinglisch.android.tasker.subbundled-type>
+					<plugininstanceid>7144af18-0b55-4cf7-946d-a27f235b155b</plugininstanceid>
+					<plugininstanceid-type>java.lang.String</plugininstanceid-type>
+					<plugintypeid>com.joaomgcd.autonotification.intent.IntentInterceptNotificationEvent</plugintypeid>
+					<plugintypeid-type>java.lang.String</plugintypeid-type>
+				</Vals>
+			</Bundle>
+			<Str sr="arg1" ve="3">com.joaomgcd.autonotification</Str>
+			<Str sr="arg2" ve="3">com.joaomgcd.autonotification.activity.ActivityConfigNotificationInterceptTaskerEvent</Str>
+			<Int sr="arg3" val="1"/>
+		</Event>
+		<State sr="con1" ve="2">
+			<code>165</code>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%BikeConnected</lhs>
+					<op>2</op>
+					<rhs>true</rhs>
+				</Condition>
+			</ConditionList>
+		</State>
+	</Profile>
+	<Task sr="task254">
+		<cdate>1788508694589</cdate>
+		<edate>1792508815860</edate>
+		<id>254</id>
+		<rty>1</rty>
+		<Action sr="act0" ve="7">
+			<code>137</code>
+			<Int sr="arg0" val="0"/>
+			<Str sr="arg1" ve="3"/>
+			<ConditionList sr="if">
+				<bool0>Or</bool0>
+				<Condition sr="c0" ve="3">
+					<lhs>%anicon</lhs>
+					<op>13</op>
+					<rhs>Avvio della navigazione*</rhs>
+				</Condition>
+				<Condition sr="c1" ve="3">
+					<lhs>%anicon</lhs>
+					<op>2</op>
+					<rhs>*-527621692</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%distance</Str>
+			<Str sr="arg1" ve="3">---</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="1"/>
+		</Action>
+		<Action sr="act10" ve="7">
+			<code>129</code>
+			<Str sr="arg0" ve="3">var mappa = {
+"d06f615d5e7a8ece5407ee611c6c2b28": "depart",
+"b8587b043128772d0275c79b3655cb24": "destination",
+"DESTLEFT": "destination left",
+"-1834306968": "destination right",
+"2ed9ab31d250712932e7187146a926d6": "fork left",
+"1d217dca844543892cfff8fce0b485aa": "fork right",
+"MERGELEFT": "merge left",
+"684148e2b033c9de935e73d2aabea212": "merge right",
+"2ee75f76e554edcd48f47578a772007f": "merge",
+"68a009824ef0205aecc100f98d2dabed": "roundabout exit",
+"1544872e6b52d9d829e380f41b4d8f0f": "roundabout left",
+"aaedebcfe831f1befaafe4e9d9840d2d": "roundabout right",
+"c794ff8ab2c984fed698a6821ec10fb8": "roundabout sharp left",
+"b6d8336e210406a10ec704fff04e55e7": "roundabout sharp right",
+"dead0c6205559974fb814d4750019968": "roundabout slight left",
+"97faed77fa3563c38a768ba7433f4493": "roundabout slight right",
+"83281f1ae6adf1fd580698fdc6814e59": "roundabout straight",
+"28ec3664e5c1990749d31a51f34e7efd": "roundabout u turn",
+"44010d387b931b673506b240723c42a7": "straight",
+"925c498a3eb5a651cfceccb454996902": "turn left",
+"107da24486cb85893dbdd53c88353824": "turn right",
+"75aca1603f29a1c3ab3c93b4827f2252": "turn sharp left",
+"64a2139306e690234c398146e0cb7bca": "turn sharp right",
+"6b803e0a3999093ccfd5096017f53fd6": "turn slight left",
+"66b72d696a4771abc8d2c2002edf9499": "turn slight right",
+"3cdc3bd8720f96f86b22b375ed8c443f": "turn u turn"
+};
+
+var icon = mappa[rawicon] !== undefined ? mappa[rawicon] : rawicon;
+
+var distance = distance.replace(/\u00a0/, ' ');
+
+if (distance.length &gt; 5) {
+  distance = distance.replace(' ', '');
+}
+
+var summary = summary.replace(/Arrivo /, '').replace(/ · /g, ' ').replace(/\u00a0/, ' ');
+
+if (summary.includes(' h ')) {
+  summary = summary.replace(/ h/, 'h').replace(/ min/, 'min');
+}</Str>
+			<Str sr="arg1" ve="3"/>
+			<Int sr="arg2" val="1"/>
+			<Int sr="arg3" val="10"/>
+		</Action>
+		<Action sr="act11" ve="7">
+			<code>2061939433</code>
+			<se>false</se>
+			<Bundle sr="arg0">
+				<Vals sr="val">
+					<com.twofortyfouram.locale.intent.extra.BLURB>encoding: Text
+message: %distance|%direction|%icon|%summary
+
+Will send given message to connected device
+
+Note that this is only possible if the device is actually connected (Connection State is true). Else it will fail with an error.</com.twofortyfouram.locale.intent.extra.BLURB>
+					<com.twofortyfouram.locale.intent.extra.BLURB-type>java.lang.String</com.twofortyfouram.locale.intent.extra.BLURB-type>
+					<encoding>2131034205</encoding>
+					<encoding-type>java.lang.Integer</encoding-type>
+					<message>%distance|%direction|%icon|%summary</message>
+					<message-type>java.lang.String</message-type>
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%err
+Error Code
+If there's an error, contains an error code&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;%errmsg
+Error Message
+If there's an error, contains an error message&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;&lt;/StringArray&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
+					<net.dinglisch.android.tasker.extras.ACTION_INPUT_CLASS>nl.steinov.bletaskerplugin.tasker.SendMessageInput</net.dinglisch.android.tasker.extras.ACTION_INPUT_CLASS>
+					<net.dinglisch.android.tasker.extras.ACTION_INPUT_CLASS-type>java.lang.String</net.dinglisch.android.tasker.extras.ACTION_INPUT_CLASS-type>
+					<net.dinglisch.android.tasker.extras.ACTION_RUNNER_CLASS>nl.steinov.bletaskerplugin.tasker.SendMessageActionRunner</net.dinglisch.android.tasker.extras.ACTION_RUNNER_CLASS>
+					<net.dinglisch.android.tasker.extras.ACTION_RUNNER_CLASS-type>java.lang.String</net.dinglisch.android.tasker.extras.ACTION_RUNNER_CLASS-type>
+					<net.dinglisch.android.tasker.extras.EXTRA_WAS_CONFIGURED_BEFORE>true</net.dinglisch.android.tasker.extras.EXTRA_WAS_CONFIGURED_BEFORE>
+					<net.dinglisch.android.tasker.extras.EXTRA_WAS_CONFIGURED_BEFORE-type>java.lang.Boolean</net.dinglisch.android.tasker.extras.EXTRA_WAS_CONFIGURED_BEFORE-type>
+					<net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS>message</net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS>
+					<net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS-type>java.lang.String</net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS-type>
+					<net.dinglisch.android.tasker.subbundled>true</net.dinglisch.android.tasker.subbundled>
+					<net.dinglisch.android.tasker.subbundled-type>java.lang.Boolean</net.dinglisch.android.tasker.subbundled-type>
+				</Vals>
+			</Bundle>
+			<Str sr="arg1" ve="3">nl.steinov.bletaskerplugin</Str>
+			<Str sr="arg2" ve="3">nl.steinov.bletaskerplugin.tasker.SendMessageActivity</Str>
+			<Int sr="arg3" val="10"/>
+			<Int sr="arg4" val="1"/>
+		</Action>
+		<Action sr="act12" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%BikeConnected</Str>
+			<Str sr="arg1" ve="3">disconnected</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="1"/>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%err</lhs>
+					<op>12</op>
+					<rhs></rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act2" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%direction</Str>
+			<Str sr="arg1" ve="3">---</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="1"/>
+		</Action>
+		<Action sr="act3" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%rawicon</Str>
+			<Str sr="arg1" ve="3">---</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="1"/>
+		</Action>
+		<Action sr="act4" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%summary</Str>
+			<Str sr="arg1" ve="3">---</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="1"/>
+		</Action>
+		<Action sr="act5" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%distance</Str>
+			<Str sr="arg1" ve="3">%antitle</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="1"/>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%antitle</lhs>
+					<op>12</op>
+					<rhs></rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act6" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%direction</Str>
+			<Str sr="arg1" ve="3">%antext</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="1"/>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%antext</lhs>
+					<op>12</op>
+					<rhs></rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act7" ve="7">
+			<code>590</code>
+			<Str sr="arg0" ve="3">%anicon</Str>
+			<Str sr="arg1" ve="3">_</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%anicon</lhs>
+					<op>12</op>
+					<rhs></rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act8" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%rawicon</Str>
+			<Str sr="arg1" ve="3">%anicon2</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="1"/>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%anicon</lhs>
+					<op>12</op>
+					<rhs></rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act9" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%summary</Str>
+			<Str sr="arg1" ve="3">%ansubtext</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="1"/>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%ansubtext</lhs>
+					<op>12</op>
+					<rhs></rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+	</Task>
+</TaskerData>
